@@ -8,7 +8,7 @@ int main(int argc, const char * argv[]) {
     a.next = &b;
     b.next = &c;
     c.next = NULL;
-    printf("");
-   
+    printf("%d = a, %d = b, %d = c \n", a.data, b.data, c.data);
+    
     return 0;
 }
