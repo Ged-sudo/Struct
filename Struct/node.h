@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 typedef int Data;
 typedef struct Node Node;
 
@@ -9,6 +7,10 @@ struct Node {
     Node * next;
 };
 
+typedef struct {
+    Node * tail;
+    Node * head;
+} Query;
 
 Node * list = NULL;
 
