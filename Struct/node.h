@@ -16,3 +16,9 @@ void push(Node ** list, Data x);
 //Node * posh (Node * list, Data x);
 Data pop(Node ** list);
 
+
+void printList(Node * list) {
+    for (Node * p = list; p!= NULL; p = p->next) {
+        printf("%d, ", p->data);
+    }
+}
