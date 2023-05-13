@@ -13,5 +13,13 @@ int main(int argc, const char * argv[]) {
     printf("Empty : %s\n", is_empty(list) ? "YES" : "NO");
     printf("\n");
     
+    while (!is_empty(list)) {
+        Data d = pop(&list);
+        printf("pop %d : ", d);
+        printList(list);
+    }
+    
+    printf("Empty : %s\n", is_empty(list) ? "YES" : "NO");
+    
     return 0;
 }

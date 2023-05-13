@@ -37,3 +37,12 @@ void push(Node ** plist, Data value) {
 int is_empty(Node * list) {
     return list == NULL;
 }
+
+
+Data pop(Node ** plist) {
+    Node * p = *plist;
+    Data res = p->data;
+    *plist = p->next;
+    free(p);
+    return res;
+}
