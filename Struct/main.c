@@ -8,20 +8,13 @@ int main(int argc, const char * argv[]) {
     a.next = &b;
     b.next = &c;
     c.next = NULL;
-    
-    
-    printf("%d = a, %d = b, %d = c \n", a.data, b.data, c.data);
+
     
     
     printList(list);
-//    for (Node * p = list; p!= NULL; p = p->next) {
-//        printf("%d, ", p->data);
-//    }
-//    p = p->next;
-//    printf("%d = b, ", p->data);
-//    p = p->next;
-//    printf("%d = c \n", p->data);
-//
+    push(&list, 10);
+    printList(list);
     printf("\n");
+    
     return 0;
 }
