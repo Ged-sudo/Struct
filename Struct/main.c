@@ -10,5 +10,12 @@ int main(int argc, const char * argv[]) {
     c.next = NULL;
     printf("%d = a, %d = b, %d = c \n", a.data, b.data, c.data);
     
+    Node * p;
+    p = list; //указатель на первый элемент
+    printf("%d = a, ", p->data);
+    p = p->next;
+    printf("%d = b, ", p->data);
+    p = p->next;
+    printf("%d = c \n", p->data);
     return 0;
 }
