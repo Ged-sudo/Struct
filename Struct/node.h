@@ -13,11 +13,11 @@ struct Node {
 Node * list = NULL;
 
 void push(Node ** plist, Data x);
-//Node * posh (Node * list, Data x);
 Data pop(Node ** list);
 void printList(Node * list);
+int is_empty(Node * list);
 
-
+//print elements from list pointer
 void printList(Node * list) {
     for (Node * p = list; p!= NULL; p = p->next) {
         printf("%d, ", p->data);
@@ -31,4 +31,9 @@ void push(Node ** plist, Data value) {
     p->data = value;
     p->next = *plist;
     *plist = p;
+}
+
+//check empty
+int is_empty(Node * list) {
+    return list == NULL;
 }
