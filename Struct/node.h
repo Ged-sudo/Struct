@@ -3,7 +3,7 @@ typedef struct Node Node;
 
 // Struct Item of list
 struct Node {
-    int data;
+    Data data;
     Node * next;
 };
 
@@ -19,7 +19,7 @@ int is_empty(Node * list);
 Node* getLast(Node *list);
 Node* getNthelement(Node* list, int n);
 Node* getLastButOne(Node* list);
-void popBack(Node **list);
+void delBack(Node **list);
 
 
 //print elements from list pointer вывести все элемементы списка
@@ -37,9 +37,11 @@ void printList(Node * list) {
 //add item at first добавить элемент в начало списка
 void push(Node ** plist, Data value) {
     Node * p = malloc(sizeof(Node));
-    p->data = value;
-    p->next = *plist;
-    *plist = p;
+    if (p) {
+        p->data = value; // разыменовывание пустого указателя!
+        p->next = *plist;
+        *plist = p;
+    }
 }
 
 //check empty проверка на пустоту
@@ -71,7 +73,7 @@ Node* getLast(Node *list) {
     return list;
 }
 
-Node* getNthelement(Node* list, Data n) {
+Node* getNthelement(Node* list, int n) {
     int counter = 0;
     while (counter < n && list) {
         if (list->next != NULL) {
@@ -88,9 +90,11 @@ Node* getNthelement(Node* list, Data n) {
 void pushBack(Node *list, Data value) {
     Node *last = getLast(list);
     Node *tmp = (Node*)malloc(sizeof(Node));
-    tmp->data = value;
-    tmp->next = NULL;
-    last->next = tmp;
+    if (tmp){
+        tmp->data = value; // разыменовывание пустого указателя
+        tmp->next = NULL;
+        last->next = tmp;
+    }
 }
 
 Node* getLastButOne(Node* list) {
@@ -106,7 +110,7 @@ Node* getLastButOne(Node* list) {
     return list;
 }
 
-void popBack(Node **plist) {
+void delBack(Node **plist) {
     Node *lastbn = NULL;
     //Получили NULL
     if (!plist) {
@@ -126,7 +130,6 @@ void popBack(Node **plist) {
         lastbn->next = NULL;
     }
 }
-
 
 int countElement(Node* plist) {
     int count = 0;
