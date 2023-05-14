@@ -71,7 +71,7 @@ Node* getLast(Node *list) {
     return list;
 }
 
-Node* getNthelement(Node* list, int n) {
+Node* getNthelement(Node* list, Data n) {
     int counter = 0;
     while (counter < n && list) {
         if (list->next != NULL) {
@@ -87,7 +87,7 @@ Node* getNthelement(Node* list, int n) {
 
 void pushBack(Node *list, Data value) {
     Node *last = getLast(list);
-    Node *tmp = (Node*) malloc(sizeof(Node));
+    Node *tmp = (Node*)malloc(sizeof(Node));
     tmp->data = value;
     tmp->next = NULL;
     last->next = tmp;
@@ -106,23 +106,38 @@ Node* getLastButOne(Node* list) {
     return list;
 }
 
-void popBack(Node **list) {
+void popBack(Node **plist) {
     Node *lastbn = NULL;
     //Получили NULL
-    if (!list) {
+    if (!plist) {
         exit(-1);
     }
     //Список пуст
-    if (!(*list)) {
+    if (!(*plist)) {
         exit(-1);
     }
-    lastbn = getLastButOne(*list);
+    lastbn = getLastButOne(*plist);
     //Если в списке один элемент
     if (lastbn == NULL) {
-        free(*list);
-        *list = NULL;
+        free(*plist);
+        *plist = NULL;
     } else {
         free(lastbn->next);
         lastbn->next = NULL;
     }
+}
+
+
+int countElement(Node* plist) {
+    int count = 0;
+    if (!is_empty(plist)){
+        while (plist->next != NULL) {
+            plist = plist->next;
+            count++;
+        }
+        count++;
+    } else {
+        count = 0;
+    }
+    return count;
 }
