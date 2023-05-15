@@ -37,7 +37,9 @@ void printList(Node * list) {
 //add item at first добавить элемент в начало списка
 void push(Node ** plist, Data value) {
     Node * p = malloc(sizeof(Node));
-    if (p) {
+    if (p == NULL) {
+        printf("Error to malloc");
+    } else {
         p->data = value; // разыменовывание пустого указателя!
         p->next = *plist;
         *plist = p;
@@ -90,7 +92,9 @@ Node* getNthelement(Node* list, int n) {
 void pushBack(Node *list, Data value) {
     Node *last = getLast(list);
     Node *tmp = (Node*)malloc(sizeof(Node));
-    if (tmp){
+    if (tmp == NULL){
+        printf("Error to malloc");
+    } else {
         tmp->data = value; // разыменовывание пустого указателя
         tmp->next = NULL;
         last->next = tmp;
