@@ -10,7 +10,7 @@ int main(int argc, const char * argv[]) {
     //push(Node **plist, Data value)
     //pop(Node **plist)
     //printList(Node *list)
-    //is_empty(Node *list)
+    //isEmpty(Node *list)
     //getLast(Node *list)
     //getNthelement(Node *list, int n)
     //pushBack(Node *list, Data value)
@@ -23,7 +23,7 @@ int main(int argc, const char * argv[]) {
     printList(list);
     printf("pop(%d) \n",pop(&list));
     printList(list);
-    printf("Empty : %s\n", is_empty(list) ? "YES" : "NO");
+    printf("Empty : %s\n", isEmpty(list) ? "YES" : "NO");
     printList(list);
     printf("Last element is %d \n", getLast(list)->data);
     printList(list);

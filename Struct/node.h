@@ -7,15 +7,10 @@ struct Node {
     Node * next;
 };
 
-typedef struct {
-    Node * tail;
-    Node * head;
-} Query;
-
 void push(Node ** plist, Data x);
 Data pop(Node ** list);
 void printList(Node * list);
-int is_empty(Node * list);
+int isEmpty(Node * list);
 Node* getLast(Node *list);
 Node* getNthelement(Node* list, int n);
 Node* getLastButOne(Node* list);
@@ -24,7 +19,7 @@ void delBack(Node **list);
 
 //print elements from list pointer вывести все элемементы списка
 void printList(Node * list) {
-    if (is_empty(list)) {
+    if (isEmpty(list)) {
         printf("List is empty.");
     } else {
         for (Node * p = list; p!= NULL; p = p->next) {
@@ -47,7 +42,7 @@ void push(Node ** plist, Data value) {
 }
 
 //check empty проверка на пустоту
-int is_empty(Node * list) {
+int isEmpty(Node * list) {
     return list == NULL;
 }
 
@@ -137,7 +132,7 @@ void delBack(Node **plist) {
 
 int countElement(Node* plist) {
     int count = 0;
-    if (!is_empty(plist)){
+    if (!isEmpty(plist)){
         while (plist->next != NULL) {
             plist = plist->next;
             count++;
